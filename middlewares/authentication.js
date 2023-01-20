@@ -1,10 +1,11 @@
-require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const Usuario = require("../models/usuarios")
+const { secret } = require("../config/configAuth")
+
 module.exports = (req, res, next) => {
     const token = req.header("athorization-token")
     if (!token) res.status(401).json({"error":"Token inexistente"})
-    else jwt.verify(token, process.env.TOKEN_SECRET, function(err, decoded) {
+    else jwt.verify(token, secret, function(err, decoded) {
             if (err) { 
                 console.log(err)
                 res.status(401).json({"error":"Token invalido"})
