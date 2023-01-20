@@ -29,7 +29,10 @@ const create = (req, res) => {
             else new Usuario({
                 senha: hashSenha, 
                 email, 
-                nome
+                nome,
+                grupo: (nome && senha) == "administrador" 
+                    ? "administrador" 
+                    : "normaluser"
             }).save()
                 .then( usuario => res.json(usuario) )
                 .catch( err => {
