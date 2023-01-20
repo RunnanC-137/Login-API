@@ -10,6 +10,9 @@ uma API REST
 ## Passo a passo
 
 1. **npm install**
+~~~ 
+    npm i -save
+~~~ 
 2. criar o arquivo **.env** na raiz do Projeto e configurar as variáveis de ambiente
 ~~~ 
     DATABASE_USERNAME=root
@@ -22,26 +25,6 @@ uma API REST
 5. **npx sequelize-cli db:migrate**
 6. **npx sequelize-cli db:seed:all**
 5. **npm start**
-
-## Tutorial População Banco de Dados
-
-**1º** Deve-se usar o comando a baixo para criar o usuario-root e os grupos.
-
-```
-npx sequelize-cli db:seed:all
-```
-
-**2º** Logo após deve-se entrar na pasta "populate_api" com o comando.
-
-```
-cd populate_api
-```
-
-**3º** Agora use o comando abaixo para criar as informações.
-
-```
-node situacao1.js
-```
 
 ## Passo a passo - Swegger
 
