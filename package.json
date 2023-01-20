@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +21,10 @@
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "http-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3"
   }
