@@ -4,8 +4,8 @@ uma API REST
 ## Despendencias
 
 1. Node.js 16.16
-2. Servidor (local remoto) 
-3. Base de dados mysql 8
+2. Servidor MongoDB (local/remoto) 
+3. Insomnia (opicional)
 
 ## Passo a passo
 
