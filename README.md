@@ -1,15 +1,15 @@
-# Login-AR
-uma API REST 
+# Login 
+uma API REST de login construida totalmente com javaScript
 
 ## Despendencias
 
 1. Node.js 16.16
 2. Servidor MongoDB (local/remoto) 
-3. Insomnia (opicional)
+3. Insomnia (opicional para teste)
 
 ## Passo a passo
 
-1. **npm install**
+1. instalar as dependências
 ~~~ 
     npm i -save
 ~~~ 
@@ -17,9 +17,9 @@ uma API REST
 ~~~ 
     DATABASE_USERNAME=root
     DATABASE_PASSWORD=admin
-    DATABASE_DATABASE=vale_db
-    DATABASE_HOST=127.0.0.1
-    DATABASE_PORT=3307
+    DATABASE_DATABASE=LonginAR
+    DATABASE_HOST=localhost
+    DATABASE_PORT=3000
 ~~~
 4. iniciar o banco de dados
 5. **npx sequelize-cli db:migrate**
