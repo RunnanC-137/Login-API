@@ -16,9 +16,8 @@ uma API REST de login construida totalmente com javaScript
 2. criar o arquivo **.env** na raiz do Projeto e configurar as variáveis de ambiente
 ~~~ 
     MONGO_CONNECTION_URL=
-    DATABASE_DATABASE=LonginAR
-    DATABASE_HOST=localhost
-    DATABASE_PORT=3000
+    HOST=localhost
+    PORT=3000
 ~~~
 4. iniciar o banco de dados MongoDB
 5. rodar o projeto
