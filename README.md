@@ -15,16 +15,16 @@ uma API REST de login construida totalmente com javaScript
 ~~~ 
 2. criar o arquivo **.env** na raiz do Projeto e configurar as variáveis de ambiente
 ~~~ 
-    DATABASE_USERNAME=root
-    DATABASE_PASSWORD=admin
+    MONGO_CONNECTION_URL=
     DATABASE_DATABASE=LonginAR
     DATABASE_HOST=localhost
     DATABASE_PORT=3000
 ~~~
-4. iniciar o banco de dados
-5. **npx sequelize-cli db:migrate**
-6. **npx sequelize-cli db:seed:all**
-5. **npm start**
+4. iniciar o banco de dados MongoDB
+5. rodar o projeto
+~~~
+    npm start
+~~~
 
 ## Passo a passo - Swegger
 
