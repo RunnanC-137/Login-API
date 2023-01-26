@@ -31,17 +31,19 @@ uma API REST de login construida totalmente com javaScript
 http://localhost:3000/api-docs
 ```
 **2º** Cria o Administrador:
+1. Na rota
 ```
 POST "/login/new"
 ```
-1. Clicar em **Try it out** localizado no canto superior direito.
-2. Agora clique em **“Execute”**. Pronto o administrador foi criado
+2. Clicar em **Try it out** localizado no canto superior direito.
+3. Agora clique em **“Execute”**. Pronto o administrador foi criado
 
 **3º** Logar com o Administrador
+1. Na rota
 ```
 POST "/login"
 ```
-1. Clicar em **Try it out** localizado no canto superior direito.
-2. Agora clique em **“Execute”**.
-3. Como resposta terá o **“token”** no Header.
-4. Copie o token gerado e coloque no **“Authorize”**
+2. Clicar em **Try it out** localizado no canto superior direito.
+3. Agora clique em **“Execute”**.
+4. Como resposta terá o **“token”** no Header.
+5. Copie o token gerado e coloque no **“Authorize”**
