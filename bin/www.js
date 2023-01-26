@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('example-api-sequelize:server');
+var debug = require('debug')('example-api-mongoose:server');
 var http = require('http');
 
 /**
