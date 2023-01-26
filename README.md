@@ -30,7 +30,7 @@ uma API REST de login construida totalmente com javaScript
 ```
 http://localhost:3000/api-docs
 ```
-**2º** Cria o Administrador:
+**2º** Criar o Administrador:
 1. Na rota
 ```
 POST "/login/new"
