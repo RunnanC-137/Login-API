@@ -26,7 +26,7 @@ uma API REST de login construida totalmente com javaScript
 
 ## Como testar as rotas com o Swagger
 
-**1º** Entrar na URL:
+**1º** Com o projeto rodando entre na URL:
 ```
 http://localhost:3000/api-docs
 ```
@@ -46,4 +46,10 @@ POST "/login"
 2. Clicar em **Try it out** localizado no canto superior direito.
 3. Agora clique em **“Execute”**.
 4. Como resposta terá o **“token”** no Header.
-5. Copie o token gerado e coloque no **“Authorize”**
+
+**4º** Autorizar as rotas
+1. Copie o token gerado e coloque no **“Authorize”**
+2. Pronto você já pode testar todas as rotas
+
+**5º** Quando o token expirar
+1. repita o 3º e o 4º passo
