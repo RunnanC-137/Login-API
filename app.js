@@ -1,13 +1,16 @@
 require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
-var createError = require('http-errors');
+const createError = require('http-errors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./configSwagger/swagger.json');
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 require("./models")
 require("./routers")(app)
 
