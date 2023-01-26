@@ -1,0 +1,10 @@
+xxx - yyy - zzz
+
+xxx - Local do arquivo que foi executado
+yyy - Ordem do erro ()
+zzz - Auxiliar
+
+001 - controllers/login.js.
+002 - controllers/usuario.js
+003 - middlewares/authetication.js
+004 - middlewares/permitions.js
