@@ -25,19 +25,18 @@ const create = (req, res) => {
         .then( usuario => {
             if (usuario) 
                 res.status(400).json({"error": {message:`este nome ${nome}, ja está em uso`, code:"001004000", err }})
-            else new Usuario({
+            else Usuario.create({
                 senha: hashSenha, 
                 email, 
                 nome,
                 grupo: (nome && senha) == "administrador" 
                     ? "administrador" 
                     : "normaluser"
-            }).save()
-                .then( usuario => res.json(usuario) )
-                .catch( err => {
-                    console.log(err)
-                    res.status(400).json({"error": {message: "falha ao tentar criar o usuário", code:"001005000", err }})
-                })
+            }).then( usuario => res.json(usuario) )
+            .catch( err => {
+                console.log(err)
+                res.status(400).json({"error": {message: "falha ao tentar criar o usuário", code:"001005000", err }})
+            })
         })
     })
     
