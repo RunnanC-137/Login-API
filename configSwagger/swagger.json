@@ -15,7 +15,11 @@
         },
         {
             "url": "http://192.168.100.11:3000",
-            "description": "IP A50-MA/PA"
+            "description": "IP-[HOME] A50-MA/PA"
+        },
+        {
+            "url": "http://10.204.23.223/:3000",
+            "description": "IP-[Unifesspa] A50-MA/PA"
         }
     ],
     "paths": {
