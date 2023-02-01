@@ -18,7 +18,7 @@
             "description": "IP-[HOME] A50-MA/PA"
         },
         {
-            "url": "http://10.204.23.223/:3000",
+            "url": "http://10.204.23.223:3000",
             "description": "IP-[Unifesspa] A50-MA/PA"
         }
     ],
