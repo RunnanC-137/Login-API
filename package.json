@@ -1,5 +1,5 @@
 {
-  "name": "login_api-rest",
+  "name": "login-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RunnanC-137/Login_API-REST.git"
+    "url": "git+https://github.com/RunnanC-137/Login-API.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RunnanC-137/Login_API-REST/issues"
+    "url": "https://github.com/RunnanC-137/Login-API/issues"
   },
-  "homepage": "https://github.com/RunnanC-137/Login_API-REST#readme",
+  "homepage": "https://github.com/RunnanC-137/Login-API#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
