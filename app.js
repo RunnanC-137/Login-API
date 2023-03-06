@@ -1,4 +1,3 @@
-require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
 const createError = require('http-errors');
@@ -11,7 +10,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-require("./models")
+//DB connection
+require("./db/conn")()
+//Routers of the project
 require("./routers")(app)
 
 // catch 404 and forward to error handler

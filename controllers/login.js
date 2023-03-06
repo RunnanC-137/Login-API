@@ -1,7 +1,8 @@
-const Usuario = require("../models/usuarios.js")
+const Usuario = require("../models/usuario.js")
 const bcrytpjs = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const Joi = require("@hapi/joi")
+const { secret, expiresIn } = require("../config/configAuth")
 
 const validation = (reqbody) => Joi.object({
     senha: Joi.string().required().min(6).max(400), 
@@ -49,18 +50,21 @@ const login = (req, res) => {
         res.status(400).json({ "error": {message:"O campo de matricula e senha são obrigatorios", code:"001006000", err} })
     Usuario.findOne({ email })
     .then( usuario => {
-        if (!usuario) res.status(404).json({"error":{message:"senha ou email incoreto",code:"001007000", err }})
+        if (!usuario) res.status(404).json({"error":{ message:"senha ou email incoreto",code:"001007000" }})
         else if (bcrytpjs.compareSync(senha, usuario.senha)) {
             //Gerando token
             const token = jwt.sign(
                 { id: usuario.id },
-                process.env.TOKEN_SECRET,
-                { expiresIn: process.env.TOKEN_EXPIREIN }
+                secret,
+                { expiresIn }
             )
-            res.header("athorization-token", token)
-            res.json("usuario logado")
+            
+            res
+            .header("athorization-token", token)
+            .json("usuario logado")
+            
         }
-        else res.status(404).json({"error":{message:"senha ou email incoreto", code:"001008000", err }})
+        else res.status(404).json({"error":{message:"senha ou email incoreto", code:"001008000" }})
     })
 }
 
