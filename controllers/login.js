@@ -47,7 +47,7 @@ const create = (req, res) => {
 const login = (req, res) => {
     const { senha, email } = req.body
     if (!email|| !senha) 
-        res.status(400).json({ "error": {message:"O campo de matricula e senha são obrigatorios", code:"001006000", err} })
+        res.status(400).json({ "error": { message:"O campo de matricula e senha são obrigatorios", code:"001006000", err } })
     Usuario.findOne({ email })
     .then( usuario => {
         if (!usuario) res.status(404).json({"error":{ message:"senha ou email incoreto",code:"001007000" }})
@@ -61,6 +61,7 @@ const login = (req, res) => {
             
             res
             .header("athorization-token", token)
+            .cookie('token', token, { httpOnly: true })
             .json("usuario logado")
             
         }
