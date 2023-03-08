@@ -17,15 +17,15 @@ const create = (req, res) => {
     const { error } = validation(req.body)
     const hashSenha = bcrytpjs.hashSync(senha)
     if (error) 
-        res.status(400).json({"error":{ message: error.message, code:"001002000", err }})
+        res.status(400).json({"error":{ message: error.message, code:"001002000", error }})
     else Usuario.findOne({ email })
     .then( usuario => {
         if (usuario) 
-            res.status(400).json({"error": {message:`este email ${email}, ja está em uso`, code:"001003000", err }})
+            res.status(400).json({"error": {message:`este email ${email}, ja está em uso`, code:"001003000" }})
         else Usuario.findOne({ nome })
         .then( usuario => {
             if (usuario) 
-                res.status(400).json({"error": {message:`este nome ${nome}, ja está em uso`, code:"001004000", err }})
+                res.status(400).json({"error": {message:`este nome ${nome}, ja está em uso`, code:"001004000" }})
             else Usuario.create({
                 senha: hashSenha, 
                 email, 
@@ -34,9 +34,9 @@ const create = (req, res) => {
                     ? "administrador" 
                     : "normaluser"
             }).then( usuario => res.json(usuario) )
-            .catch( err => {
-                console.log(err)
-                res.status(400).json({"error": {message: "falha ao tentar criar o usuário", code:"001005000", err }})
+            .catch( error => {
+                console.log(error)
+                res.status(400).json({"error": {message: "falha ao tentar criar o usuário", code:"001005000", error }})
             })
         })
     })
@@ -47,7 +47,7 @@ const create = (req, res) => {
 const login = (req, res) => {
     const { senha, email } = req.body
     if (!email|| !senha) 
-        res.status(400).json({ "error": { message:"O campo de matricula e senha são obrigatorios", code:"001006000", err } })
+        res.status(400).json({ "error": { message:"O campo de matricula e senha são obrigatorios", code:"001006000" } })
     Usuario.findOne({ email })
     .then( usuario => {
         if (!usuario) res.status(404).json({"error":{ message:"senha ou email incoreto",code:"001007000" }})
@@ -58,11 +58,11 @@ const login = (req, res) => {
                 secret,
                 { expiresIn }
             )
-            
+            delete usuario["_doc"].senha
             res
             .header("athorization-token", token)
             .cookie('token', token, { httpOnly: true })
-            .json("usuario logado")
+            .json(usuario)
             
         }
         else res.status(404).json({"error":{message:"senha ou email incoreto", code:"001008000" }})
