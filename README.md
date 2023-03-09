@@ -1,4 +1,4 @@
-# Login 
+# Login API 
 uma API REST de login construida totalmente com javaScript
 
 ## Despendencias
