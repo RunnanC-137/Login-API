@@ -33,7 +33,19 @@ const create = (req, res) => {
                 grupo: (nome && senha) == "administrador" 
                     ? "administrador" 
                     : "normaluser"
-            }).then( usuario => res.json(usuario) )
+            }).then( usuario => {
+                
+                const token = jwt.sign(
+                    { id: usuario.id },
+                    secret,
+                    { expiresIn }
+                )
+                delete usuario["_doc"].senha
+                res
+                .header("athorization-token", token)
+                .cookie('token', token, { httpOnly: true })
+                .json(usuario)
+            })
             .catch( error => {
                 console.log(error)
                 res.status(400).json({"error": {message: "falha ao tentar criar o usuário", code:"001005000", error }})
