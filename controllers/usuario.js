@@ -7,11 +7,11 @@ const _list = (req, res) => {
 }
 
 const _update = (req, res) => {
-    const { nome, email } = req
+    const { nome, email } = req.body
     const { id } = req.usuario
     Usuario.findByIdAndUpdate(id, { nome, email })
     .then( usuario => {
-        res.json({"message": "usuario atualizado com sucesso", "updatedUser":usuario})
+        res.json(usuario)
     })
     .catch( err => {
         console.log(err)
@@ -20,14 +20,14 @@ const _update = (req, res) => {
 }
 
 const _update_password = (req, res) => {
-    const { senha } = req
+    const { senha } = req.body
     const { id } = req.usuario
     if (!senha) 
         res.status(400).json({ "error": { message:"O campo de senha é obrigatorio", code:"001006000" } })
     else if (bcrytpjs.compareSync(senha, req.usuario.senha)) {
         Usuario.findByIdAndUpdate(id, { senha })
         .then( usuario => {
-            res.json({"message": "usuario atualizado com sucesso", "updatedUser":usuario})
+            res.json(usuario)
         })
         .catch( err => {
             console.log(err)
@@ -38,11 +38,11 @@ const _update_password = (req, res) => {
 }
 
 const _update_adm = (req, res) => {
-    const { nome, email, senha } = req
+    const { nome, email, senha } = req.body
     const { id } = req.params
     Usuario.findByIdAndUpdate(id, { nome, email, senha })
     .then( usuario => {
-        res.json({"message": "usuario atualizado com sucesso", "updatedUser":usuario})
+        res.json(usuario)
     })
     .catch( err => {
         console.log(err)
@@ -54,7 +54,7 @@ const _delete = (req, res) => {
     const { id } = req.usuario
     Usuario.findByIdAndDelete(id)
     .then( (usuario) => {
-        res.json({"message": "usuario deleteado com sucesso", "deletedUser":usuario})
+        res.json(usuario)
     })
     .catch( err => {
         console.log(err)
@@ -66,7 +66,7 @@ const _delete_adm = (req, res) => {
     const { id } = req.params
     Usuario.findByIdAndDelete(id)
     .then( (usuario) => {
-        res.json({"message": "usuario deleteado com sucesso", "deletedUser":usuario})
+        res.json(usuario)
     })
     .catch( err => {
         console.log(err)
